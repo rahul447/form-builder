@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+// import styled from 'styled-components'
+// import FormBuilder from "./components/formBuilder/formbuilder";
+// import getFormData from "./data/formConfig";
+import Userform from "./Userform";
+
+// const data = getFormData()
+
+// const AppContainer = styled.div`
+//   display: grid;
+// `;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      // <AppContainer>
+      //   <FormBuilder data={data} />
+      // </AppContainer>
+      <Userform />
   );
 }
 
