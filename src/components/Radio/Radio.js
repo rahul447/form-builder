@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import "./Radio.css";
 
-const RadioWrapper = styled.div`
-  display: inline-block;
-`;
+const RadioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 15px;
 
-const Mark = styled.span`
+  .error {
+    color: red;
+  }
+`
+
+const RadioSpan = styled.span`
   display: inline-block;
   position: relative;
   border: 1px solid #777777;
@@ -22,7 +27,7 @@ const Mark = styled.span`
     width: 0;
     height: 0;
     border-radius: 50%;
-    background-color: #03a9f4;
+    background-color: blueviolet;
     opacity: 0;
     left: 50%;
     top: 50%;
@@ -31,11 +36,19 @@ const Mark = styled.span`
   }
 `;
 
-const Input = styled.input`
+const RadioInput = styled.input`
   position: absolute;
   visibility: hidden;
   display: none;
-  &:checked + ${Mark} {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #777;
+  background-color: #eee;
+  outline: none;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  margin: 0 0 8px 0;
+  &:checked + ${RadioSpan} {
     &::after {
       width: 10px;
       height: 10px;
@@ -46,27 +59,14 @@ const Input = styled.input`
   }
 `;
 
-const RadioLabel = styled.label`
+const RadioLabelWrapper = styled.label`
   display: flex;
   cursor: pointer;
   padding: 5px 10px 5px 0;
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
   position: relative;
-  ${props =>
-    props.disabled &&
-    `
-        cursor: not-allowed;
-        opacity: 0.4;
-    `}
 `;
-
-
-export const RadioButton = ({ name, children, checked, type }) => (
-  <RadioLabel>
-    <Input name={name} type={type} defaultChecked={checked} />
-    <Mark />
-    {children}
-  </RadioLabel>
-);
 
 function RadioField(props) {
   const {
@@ -80,19 +80,23 @@ function RadioField(props) {
   } = props;
 
   return (
-    <div className="radioContainer">
+    <RadioContainer>
       <label>{label}</label>
       {
         options.map((option, idx) => (
-          <RadioWrapper key={idx} onChange={handleChange}>
-            <RadioButton name={name} index={idx} type={type}>{option.displayValue}</RadioButton>
-          </RadioWrapper>
+          <div key={idx} onChange={handleChange}>
+            <RadioLabelWrapper>
+              <RadioInput name={name} type={type} value={option.value} />
+              <RadioSpan />
+              {option.displayValue}
+            </RadioLabelWrapper>
+          </div>
         ))
       }
       {errorMessage && !isValid && (
         <span className="error">{errorMessage}</span>
       )}
-    </div>
+    </RadioContainer>
   );
 }
 

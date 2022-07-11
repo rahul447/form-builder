@@ -25,7 +25,7 @@ export const userForm = {
     ]
   },
   city: {
-    ...createFormFieldConfig(FIELD.SELECT, "City", "city", {options: [{value: "gurgaon", label: "Gurgaon"}, {value: "delhi", label: "Delhi"}, 
+    ...createFormFieldConfig(FIELD.SELECT, "City", "city", {options: [{value: "", label: "Select"}, {value: "gurgaon", label: "Gurgaon"}, {value: "delhi", label: "Delhi"}, 
     {value: "noida", label: "Noida"}, {value: "jaipur", label: "Jaipur"}]}), 
     validationRules: [
         requiredRule("city"),
@@ -36,7 +36,7 @@ export const userForm = {
     validationRules: [
         requiredRule("address"),
         minLengthRule("address", 3),
-        maxLengthRule("address", 1000)
+        maxLengthRule("address", 200)
     ]
   },
   email: {
