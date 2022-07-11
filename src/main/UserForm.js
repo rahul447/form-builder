@@ -1,8 +1,8 @@
 import React from "react";
-import useForm from "./hooks/useForm";
-import { userForm } from "./formConfig";
+import useForm from "../hooks/useForm";
+import { userForm } from "../formConfig";
 
-import "./styles.css";
+import "../styles.css";
 import "./UserForm.css";
 
 export default function UserForm() {
