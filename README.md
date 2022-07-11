@@ -35,9 +35,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### App Details!
 
-We can create a form field by adding a similar object defination as mentioned below in formConfig.js file. In this object, we just need to call createFormFieldConfig method and pass the validation rules in validationRules Array.
+We can create a form field by adding a similar object defination as mentioned below in ```formConfig.js``` file. In this object, we just need to call ```createFormFieldConfig``` method and pass the validation rules in ```validationRules``` Array.
 
-New validation Rules can be added to inputValidationRules.js
+New validation Rules can be added to ```inputValidationRules.js```
 
 Finally Output of the form would be visible in the Console!
 
