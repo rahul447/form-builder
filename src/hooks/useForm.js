@@ -5,8 +5,8 @@ function useForm(formObj) {
 
   function renderFormInputs() {
     return Object.values(form).map((inputObj) => {
-      const { value, label, errorMessage, valid, renderInput } = inputObj;
-      return renderInput(onInputChange, value, valid, errorMessage, label);
+      const { value, label, errorMessage, valid, renderElement } = inputObj;
+      return renderElement(onInputChange, value, valid, errorMessage, label);
     });
   }
 
@@ -57,7 +57,7 @@ function useForm(formObj) {
     return isValid;
   }, [form]);
 
-  return { renderFormInputs, isFormValid };
+  return { renderFormInputs, isFormValid, form };
 }
 
 export default useForm;
